@@ -9,6 +9,9 @@ if (typeof moment === "undefined" && require) {
     };
 
     function pluralize(num, word) {
+        if (word !== 's' && num > 1)
+            word += word // change 'm' to 'mm', etc.
+
         return moment.localeData().relativeTime(num, true, word, false)
     }
 
@@ -16,22 +19,22 @@ if (typeof moment === "undefined" && require) {
         var result = [];
 
         if (yDiff) {
-            result.push(pluralize(yDiff, 'yy'));
+            result.push(pluralize(yDiff, 'y'));
         }
         if (mDiff) {
-            result.push(pluralize(mDiff, 'mm'));
+            result.push(pluralize(mDiff, 'M'));
         }
         if (dDiff) {
-            result.push(pluralize(dDiff, 'dd'));
+            result.push(pluralize(dDiff, 'd'));
         }
         if (hourDiff) {
-            result.push(pluralize(hourDiff, 'hh'));
+            result.push(pluralize(hourDiff, 'h'));
         }
         if (minDiff) {
-            result.push(pluralize(minDiff, 'mm'));
+            result.push(pluralize(minDiff, 'm'));
         }
         if (secDiff) {
-            result.push(pluralize(secDiff, 'ss'));
+            result.push(pluralize(secDiff, 's'));
         }
 
         return result.join(STRINGS.delimiter);
