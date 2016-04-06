@@ -5,45 +5,33 @@ if (typeof moment === "undefined" && require) {
 (function(moment) {
     var STRINGS = {
         nodiff: '',
-        year: 'year',
-        years: 'years',
-        month: 'month',
-        months: 'months',
-        day: 'day',
-        days: 'days',
-        hour: 'hour',
-        hours: 'hours',
-        minute: 'minute',
-        minutes: 'minutes',
-        second: 'second',
-        seconds: 'seconds',
         delimiter: ' '
     };
 
     function pluralize(num, word) {
-        return num + ' ' + STRINGS[word + (num === 1 ? '' : 's')];
+        return moment.localeData().relativeTime(num, true, word, false)
     }
 
     function buildStringFromValues(yDiff, mDiff, dDiff, hourDiff, minDiff, secDiff){
         var result = [];
 
         if (yDiff) {
-            result.push(pluralize(yDiff, 'year'));
+            result.push(pluralize(yDiff, 'y'));
         }
         if (mDiff) {
-            result.push(pluralize(mDiff, 'month'));
+            result.push(pluralize(mDiff, 'm'));
         }
         if (dDiff) {
-            result.push(pluralize(dDiff, 'day'));
+            result.push(pluralize(dDiff, 'd'));
         }
         if (hourDiff) {
-            result.push(pluralize(hourDiff, 'hour'));
+            result.push(pluralize(hourDiff, 'h'));
         }
         if (minDiff) {
-            result.push(pluralize(minDiff, 'minute'));
+            result.push(pluralize(minDiff, 'm'));
         }
         if (secDiff) {
-            result.push(pluralize(secDiff, 'second'));
+            result.push(pluralize(secDiff, 's'));
         }
 
         return result.join(STRINGS.delimiter);
