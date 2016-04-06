@@ -15,6 +15,9 @@
   },
   "tonicExampleFilename": "example/example.js",
   "author": "Rob Dawson <rob@codebox.org.uk> (http://codebox.org.uk)",
+  "contributors": [
+    "Schwarzkopf Balazs <schwarzkopfb@icloud.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/codebox/moment-precise-range/issues"
