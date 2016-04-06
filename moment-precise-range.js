@@ -16,22 +16,22 @@ if (typeof moment === "undefined" && require) {
         var result = [];
 
         if (yDiff) {
-            result.push(pluralize(yDiff, 'y'));
+            result.push(pluralize(yDiff, 'yy'));
         }
         if (mDiff) {
-            result.push(pluralize(mDiff, 'm'));
+            result.push(pluralize(mDiff, 'mm'));
         }
         if (dDiff) {
-            result.push(pluralize(dDiff, 'd'));
+            result.push(pluralize(dDiff, 'dd'));
         }
         if (hourDiff) {
-            result.push(pluralize(hourDiff, 'h'));
+            result.push(pluralize(hourDiff, 'hh'));
         }
         if (minDiff) {
-            result.push(pluralize(minDiff, 'm'));
+            result.push(pluralize(minDiff, 'mm'));
         }
         if (secDiff) {
-            result.push(pluralize(secDiff, 's'));
+            result.push(pluralize(secDiff, 'ss'));
         }
 
         return result.join(STRINGS.delimiter);
